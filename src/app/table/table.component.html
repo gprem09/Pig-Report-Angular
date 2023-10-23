@@ -1,0 +1,50 @@
+<button id="create-btn" mat-raised-button color="accent" (click)="openDialog()">Create Pig Report</button>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="location" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
+        <td mat-cell *matCellDef="let row"> {{row.location}} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Reported By </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Time Reported </th>
+        <td mat-cell *matCellDef="let row"> {{row.time}} </td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+      </ng-container>
+      <ng-container matColumnDef="action1">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+        <td mat-cell *matCellDef="let row">
+          <button id="info-btn1" mat-button color="accent" (click)="retrieve(row)">
+            Retrieve
+          </button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action2">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+        <td mat-cell *matCellDef="let row">
+          <button id="info-btn2" mat-button color="Basic" (click)="moreInfo(row)">
+            MORE INFO
+          </button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action3">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+        <td mat-cell *matCellDef="let row">
+          <button id="info-btn3" mat-button color="warn" (click)="deletePig(row.id)">
+            Delete
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr class="mat-row" *matNoDataRow>
+      </tr>
+    </table>
+  </div>

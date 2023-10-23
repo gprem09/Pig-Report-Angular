@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Add Form</h1>
+<div mat-dialog-content>
+    <form [formGroup]="addForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input formControlName="phone_num" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Breed</mat-label>
+            <input formControlName="breed" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Pid</mat-label>
+            <input formControlName="pid" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Location</mat-label>
+            <mat-select formControlName="location">
+                <mat-option value="Vancouver">Vancouver</mat-option>
+                <mat-option value="Granville">Granville</mat-option>
+                <mat-option value="UBC">UBC</mat-option>
+                <mat-option value="Burnaby">Burnaby</mat-option>
+                <mat-option value="SFU">SFU</mat-option>
+                <mat-option value="Metrotown">Metrotown</mat-option>
+                <mat-option value="Surrey">Surrey</mat-option>
+                <mat-option value="Langley">Langley</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Notes</mat-label>
+            <input formControlName="notes" matInput>
+        </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button id="close-btn" mat-raised-button color="basic" mat-dialog-close="">Close</button>
+    <button id="submit-btn" mat-raised-button color="basic" (click)="onSubmit()">Submit</button>
+</div>
